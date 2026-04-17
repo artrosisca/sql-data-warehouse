@@ -4,8 +4,9 @@
     "\\datasets",
     "\\docs",
     "\\scripts",
+    "\\scripts\\checks",
+    "\\scripts\\silver",
     "\\testes"
   ],
-  "SelectedNode": "\\scripts",
   "PreviewInSolutionExplorer": false
 }
