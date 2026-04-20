@@ -24,9 +24,9 @@ BEGIN
 		PRINT '--------------------';
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating table bronze.crm_cust_info';
+		PRINT 'TRUNCATING TABLE: bronze.crm_cust_info';
 		TRUNCATE TABLE bronze.crm_cust_info
-		PRINT '>> Inserting data in bronze.crm_cust_info';
+		PRINT 'INSERTING DATA INTO: bronze.crm_cust_info';
 		BULK INSERT bronze.crm_cust_info
 		FROM 'C:\sql-datawarehouse\datasets\source_crm\cust_info.csv'
 		WITH (
@@ -39,9 +39,9 @@ BEGIN
 		PRINT '>> --------------------';
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating table bronze.crm_prd_info';
+		PRINT 'TRUNCATING TABLE: bronze.crm_prd_info';
 		TRUNCATE TABLE bronze.crm_prd_info
-		PRINT '>> Inserting data in bronze.crm_prd_info';
+		PRINT 'INSERTING DATA INTO: bronze.crm_prd_info';
 		BULK INSERT bronze.crm_prd_info
 		FROM 'C:\sql-datawarehouse\datasets\source_crm\prd_info.csv'
 		WITH (
@@ -54,9 +54,9 @@ BEGIN
 		PRINT '>> --------------------';
 		
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating table bronze.crm_sales_details';
+		PRINT 'TRUNCATING TABLE: bronze.crm_sales_details';
 		TRUNCATE TABLE bronze.crm_sales_details
-		PRINT '>> Inserting data in bronze.crm_sales_details';
+		PRINT 'INSERTING DATA INTO: bronze.crm_sales_details';
 		BULK INSERT bronze.crm_sales_details
 		FROM 'C:\sql-datawarehouse\datasets\source_crm\sales_details.csv'
 		WITH (
@@ -73,9 +73,9 @@ BEGIN
 		PRINT '--------------------'
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating table bronze.erp_cust_az12';
+		PRINT 'TRUNCATING TABLE: bronze.erp_cust_az12';
 		TRUNCATE TABLE bronze.erp_cust_az12
-		PRINT '>> Inserting data in bronze.erp_cust_az12';
+		PRINT 'INSERTING DATA INTO: bronze.erp_cust_az12';
 		BULK INSERT bronze.erp_cust_az12
 		FROM 'C:\sql-datawarehouse\datasets\source_erp\CUST_AZ12.csv'
 		WITH (
@@ -88,9 +88,9 @@ BEGIN
 		PRINT '>> --------------------';
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating table bronze.erp_loc_a101';
+		PRINT 'TRUNCATING TABLE: bronze.erp_loc_a101';
 		TRUNCATE TABLE bronze.erp_loc_a101
-		PRINT '>> Inserting data in bronze.erp_loc_a101';
+		PRINT 'INSERTING DATA INTO: bronze.erp_loc_a101';
 		BULK INSERT bronze.erp_loc_a101
 		FROM 'C:\sql-datawarehouse\datasets\source_erp\LOC_A101.csv'
 		WITH (
@@ -103,9 +103,9 @@ BEGIN
 		PRINT '>> --------------------';
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating table bronze.erp_px_cat_g1v2';
+		PRINT 'TRUNCATING TABLE: bronze.erp_px_cat_g1v2';
 		TRUNCATE TABLE bronze.erp_px_cat_g1v2
-		PRINT '>> Inserting data in bronze.erp_px_cat_g1v2';
+		PRINT 'INSERTING DATA INTO: bronze.erp_px_cat_g1v2';
 		BULK INSERT bronze.erp_px_cat_g1v2
 		FROM 'C:\sql-datawarehouse\datasets\source_erp\PX_CAT_G1V2.csv'
 		WITH (
