@@ -47,7 +47,7 @@ BEGIN
 		END cst_marital_status,
 		CASE WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female' --UPPER() só pra garantir que pegue caso tenhamos minusculo
 			WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male' --TRIM() parecido com o UPPER, mas para garantir caso algum tenha espaço
-			ELSE 'Other'
+			ELSE 'n/a'
 		END cst_gndr, --lembrar de dizer qual coluna em que os valores devem ser colocados
 		cst_create_date
 		FROM (
