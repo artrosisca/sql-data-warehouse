@@ -1,61 +1,16 @@
 # SQL Data Warehouse Project
 
-Este projeto consiste na implementação de um Data Warehouse ponta a ponta, utilizando a **Arquitetura Medalhão** (Bronze → Silver → Gold) para transformar dados brutos de sistemas CRM e ERP em informações prontas para análise dimensional.
-
----
-
-## 📂 Estrutura de Pastas
-
-```
-sql-data-warehouse/
-├── datasets/               # Arquivos de dados brutos (fontes CRM e ERP)
-├── docs/                   # Documentação técnica e Data Catalog
-└── scripts/
-    ├── init/               # Inicialização: criação do banco e dos schemas
-    ├── bronze/             # DDL e Stored Procedure de carga bruta (Truncate & Load)
-    ├── silver/             # DDL, Stored Procedure e scripts de transformação dos dados
-    │   └── transformations/  # Scripts modulares individuais de transformação (base da procedure)
-    ├── gold/               # DDL e Views do modelo dimensional (Star Schema)
-    └── checks/             # Scripts de auditoria e qualidade de dados (Data Quality)
-        ├── bronze_check/
-        ├── silver_check/
-        └── gold_check/
-```
-
----
-
-## 🏗️ Arquitetura Medalhão
-
-| Camada | Descrição |
-|--------|-----------|
-| 🥉 **Bronze** | Ingestão dos dados brutos no SQL Server sem transformação. Carga via `Truncate & Load`. |
-| 🥈 **Silver** | Limpeza, padronização de tipos, deduplicação e aplicação de regras de negócio. |
-| 🥇 **Gold** | Modelo dimensional (Star Schema) com Views de Fatos e Dimensões, pronto para consumo analítico. |
-
----
-
-## 🚀 Como Executar
-
-1. **Inicialização** — Execute `scripts/init/init_datawarehouse.sql` para criar o banco e os schemas.
-2. **Carga Bronze** — Execute a Stored Procedure 'procedure_load_bronze.sql' em `scripts/bronze/` para importar os dados brutos.
-3. **Transformação Silver** — Execute a Stored Procedure 'procedure_load_silver.sql' em `scripts/silver/` para limpeza e padronização.
-4. **Camada Analítica Gold** — Execute o script 'ddl_gold.sql' em `scripts/gold/` para criar as Views dimensionais.
-5. **Qualidade de Dados** — Utilize os scripts em `scripts/checks/` para verificar cada camada se necessário.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **Banco de Dados**: SQL Server (T-SQL)
-- **Modelagem**: Arquitetura Medalhão (Medallion Architecture) + Star Schema
-- **Ferramenta de Desenvolvimento**: Azure Data Studio / VS Code
-
----
----
-
-# SQL Data Warehouse Project *(English)*
-
 This project implements an end-to-end Data Warehouse using the **Medallion Architecture** (Bronze → Silver → Gold) to transform raw data from CRM and ERP systems into information ready for dimensional analysis.
+
+![Architecture](docs/Architecture.png)
+
+![Data Flow](docs/DataFlow.png)
+
+---
+
+## 📚 Documentation
+
+- [Data Catalog (Gold Layer)](docs/DataCatalog.md)
 
 ---
 
@@ -104,3 +59,68 @@ sql-data-warehouse/
 - **Database**: SQL Server (T-SQL)
 - **Modeling**: Medallion Architecture + Star Schema
 - **Development Tool**: SQL Server Management Studio (SSMS)
+
+---
+---
+
+# SQL Data Warehouse Project *(Português)*
+
+Este projeto consiste na implementação de um Data Warehouse ponta a ponta, utilizando a **Arquitetura Medalhão** (Bronze → Silver → Gold) para transformar dados brutos de sistemas CRM e ERP em informações prontas para análise dimensional.
+
+![Architecture](docs/Architecture.png)
+
+![Data Flow](docs/DataFlow.png)
+
+---
+
+## 📚 Documentação
+
+- [Data Catalog (Camada Gold)](docs/DataCatalog.md)
+
+---
+
+## 📂 Estrutura de Pastas
+
+```
+sql-data-warehouse/
+├── datasets/               # Arquivos de dados brutos (fontes CRM e ERP)
+├── docs/                   # Documentação técnica e Data Catalog
+└── scripts/
+    ├── init/               # Inicialização: criação do banco e dos schemas
+    ├── bronze/             # DDL e Stored Procedure de carga bruta (Truncate & Load)
+    ├── silver/             # DDL, Stored Procedure e scripts de transformação dos dados
+    │   └── transformations/  # Scripts modulares individuais de transformação (base da procedure)
+    ├── gold/               # DDL e Views do modelo dimensional (Star Schema)
+    └── checks/             # Scripts de auditoria e qualidade de dados (Data Quality)
+        ├── bronze_check/
+        ├── silver_check/
+        └── gold_check/
+```
+
+---
+
+## 🏗️ Arquitetura Medalhão
+
+| Camada | Descrição |
+|--------|-----------|
+| 🥉 **Bronze** | Ingestão dos dados brutos no SQL Server sem transformação. Carga via `Truncate & Load`. |
+| 🥈 **Silver** | Limpeza, padronização de tipos, deduplicação e aplicação de regras de negócio. |
+| 🥇 **Gold** | Modelo dimensional (Star Schema) com Views de Fatos e Dimensões, pronto para consumo analítico. |
+
+---
+
+## 🚀 Como Executar
+
+1. **Inicialização** — Execute `scripts/init/init_datawarehouse.sql` para criar o banco e os schemas.
+2. **Carga Bronze** — Execute a Stored Procedure 'procedure_load_bronze.sql' em `scripts/bronze/` para importar os dados brutos.
+3. **Transformação Silver** — Execute a Stored Procedure 'procedure_load_silver.sql' em `scripts/silver/` para limpeza e padronização.
+4. **Camada Analítica Gold** — Execute o script 'ddl_gold.sql' em `scripts/gold/` para criar as Views dimensionais.
+5. **Qualidade de Dados** — Utilize os scripts em `scripts/checks/` para verificar cada camada se necessário.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Banco de Dados**: SQL Server (T-SQL)
+- **Modelagem**: Arquitetura Medalhão (Medallion Architecture) + Star Schema
+- **Ferramenta de Desenvolvimento**: SQL Server Management Studio (SSMS)
