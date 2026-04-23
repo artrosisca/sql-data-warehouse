@@ -1,21 +1,60 @@
 # Verificações de Qualidade de Dados (Data Quality)
 
-Este diretório contém scripts SQL destinados à validação e garantia da qualidade dos dados durante o processo de ETL.
+Este diretório contém scripts SQL dedicados à **validação e auditoria** dos dados em cada camada do pipeline ETL, garantindo integridade e consistência antes do avanço para a próxima etapa.
 
 ## Estrutura de Pastas
-* **/bronze_check/**: Scripts de validação aplicados na camada Bronze para identificar problemas na origem, como nulos, duplicados em chaves primárias e espaços em branco desnecessários.
-* **/silver_check/**: Scripts aplicados na camada Silver para garantir que as transformações e limpezas (como padronização de nomes e cálculos de vendas) foram executadas corretamente.
+
+| Pasta | Descrição |
+|-------|-----------|
+| `bronze_check/` | Validações na camada Bronze: nulos em chaves primárias, duplicatas e espaços em branco indesejados nos dados de origem. |
+| `silver_check/` | Validações na camada Silver: verificação de que as transformações (padronização, cálculos e limpeza) foram aplicadas corretamente. |
+| `gold_check/` | Validações na camada Gold: integridade referencial entre Fatos e Dimensões, verificando registros órfãos nos joins. |
+
+## Scripts por Camada
+
+**Bronze** (6 scripts):
+- `crm_cust_info`, `crm_prd_info`, `crm_sales_details`
+- `erp_cust_az12`, `erp_loc_a101`, `erp_px_cat_g1v2`
+
+**Silver** (5 scripts):
+- `crm_cust_info`, `crm_prd_info`, `crm_sales_details`
+- `erp_cust_az12`, `erp_loc_a101`
+
+**Gold** (1 script):
+- `dimension_table_join_check` — verifica se os joins entre fatos e dimensões retornam registros nulos.
 
 ## Objetivo
-Assegurar a integridade e consistência dos dados, garantindo que apenas informações confiáveis avancem para as camadas analíticas.
 
-# Data Quality Checks
+Garantir que apenas dados íntegros e confiáveis avancem pelo pipeline, prevenindo inconsistências no modelo analítico final.
 
-This directory contains SQL scripts dedicated to validating and ensuring data quality during the ETL process.
+---
+---
+
+# Data Quality Checks *(English)*
+
+This directory contains SQL scripts dedicated to **validating and auditing** data at each layer of the ETL pipeline, ensuring integrity and consistency before advancing to the next step.
 
 ## Folder Structure
-* **/bronze_check/**: Validation scripts applied to the Bronze layer to identify source issues such as nulls, primary key duplicates, and unnecessary whitespace.
-* **/silver_check/**: Scripts applied to the Silver layer to ensure that transformations and cleanups (such as name standardization and sales calculations) were correctly executed.
+
+| Folder | Description |
+|--------|-------------|
+| `bronze_check/` | Bronze layer validations: nulls in primary keys, duplicates and unwanted whitespace in source data. |
+| `silver_check/` | Silver layer validations: verifying that transformations (standardization, calculations and cleaning) were correctly applied. |
+| `gold_check/` | Gold layer validations: referential integrity between Facts and Dimensions, checking for orphaned records in joins. |
+
+## Scripts per Layer
+
+**Bronze** (6 scripts):
+- `crm_cust_info`, `crm_prd_info`, `crm_sales_details`
+- `erp_cust_az12`, `erp_loc_a101`, `erp_px_cat_g1v2`
+
+**Silver** (5 scripts):
+- `crm_cust_info`, `crm_prd_info`, `crm_sales_details`
+- `erp_cust_az12`, `erp_loc_a101`
+
+**Gold** (1 script):
+- `dimension_table_join_check` — checks whether joins between facts and dimensions return null records.
 
 ## Objective
-To ensure data integrity and consistency, guaranteeing that only reliable information advances to the analytical layers.
+
+Ensure that only reliable and consistent data progresses through the pipeline, preventing inconsistencies in the final analytical model.
